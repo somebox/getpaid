@@ -1,0 +1,13 @@
+<h1>Edit Service</h1>
+<p>Services are what you make money from. The description will appear on the invoice.</p>
+
+<%= error_messages_for :service %>
+
+<% form_for(:service, :url => service_path(@service), :html => { :method => :put }) do |f| %>
+	<%= render(:partial => 'form', :object => @service, 
+			:locals => {
+				:button_label => 'Save Changes',
+				:f => f
+			 }) %>
+	<%= update_button %>
+<% end %>

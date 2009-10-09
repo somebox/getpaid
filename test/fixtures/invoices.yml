@@ -1,0 +1,44 @@
+one:
+  id: 1
+  number: 1000
+  date: 2007-05-07
+  status: open
+  customer_id: 2
+two:
+  number: 1010
+  id: 2
+  status: paid
+  date: 2007-06-25
+  customer_id: 3
+discount:
+  number: 1020
+  id: 3
+  status: open
+  date: 2007-12-12
+  customer_id: 1
+  discount: .2
+adjustment:
+  number: 1030
+  id: 4
+  status: paid
+  date: 2007-11-11
+  customer_id: 1
+  adjustment: 100
+simple:
+  number: 2000
+  id: 5
+  status: open
+  date: 2007-01-01
+  customer_id: 1
+subcontracted:
+  number: 2001
+  id: 6
+  status: open
+  date: 2008-02-03
+  customer_id: 1
+to_split:
+  number: 3000
+  id: 7
+  status: new
+  date: 2008-12-11
+  customer_id: 2

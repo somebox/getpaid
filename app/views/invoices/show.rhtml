@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title><%= @invoice.title %></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="/stylesheets/invoice_default.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="content">
+	<div id="header">
+    	<%= image_tag USER_CONFIG[:logo] %>
+		<ul>
+			<li><%= USER_CONFIG[:name] %></li>
+			<li><%= USER_CONFIG[:address1] %></li>
+			<li><%= USER_CONFIG[:address2] %></li>
+		</ul>
+		<h1>Invoice</h1>
+	</div>
+
+	<div id="invoiceInfo">
+		<dl>
+			<dt>Date</dt>
+			<dd><%= @invoice.date.strftime("%m-%d-%Y") %></dd>
+			<dt>Invoice #</dt>
+			<dd><%= @invoice.number %></dd>
+		</dl>
+	</div>
+
+    <div id="billTo">
+		<h2>Bill To:</h2>      
+    	<ul>
+			<li><%= @invoice.customer.name %></li>
+			<li><%= @invoice.customer.address %></li>
+			<li><%= @invoice.customer.city %>, <%= @invoice.customer.state %> <%= @invoice.customer.postal %></li>
+		</ul>
+	</div>
+
+	<div id="lineItems">
+	<table>
+		<tr>
+		  <th style="width:90px">DATE</th>
+		  <th>TASK</th>
+		  <th>RATE</th>
+		  <th>TIME</th>
+		  <th>TOTAL</th>				
+		</tr>
+		<% @invoice.line_items.each do |line_item| %>
+		<tr>
+		  <td class="nowrap"><%= line_item.date_performed.strftime("%m-%d-%Y") %></td>
+		  <td><strong><%= line_item.service.name.upcase %>:</strong> <%= line_item.contact ? "(#{line_item.contact.initials}) " : '' %><%= line_item.description %></td>
+		  <td><%= rate_and_units(line_item) %></td>
+		  <td><%= show_quantity(line_item) %></td>
+		  <td><%= number_to_currency line_item.total %></td>		
+		</tr>
+		<% end %>		
+		<tr class="totals">
+		  <td>&nbsp;</td>
+		  <th>SUBTOTAL:</th>
+		  <td>&nbsp;</td>
+		  <td><%= display_hours @invoice %></td>				
+		  <td><%= number_to_currency @invoice.subtotal %></td>
+		</tr>		
+		<% if @invoice.show_subtotal? %>
+			<% if @invoice.discounted? %>
+			<tr class="totals">
+			  <td>&nbsp;</td>
+			  <th>DISCOUNT:</th>
+			  <td>&nbsp;</td>
+			  <td><%= @invoice.discount_reason %> <%= (@invoice.discount * 100).to_i %>% </td>
+			  <td>-<%= number_to_currency @invoice.subtotal * @invoice.discount %></td>
+			</tr>
+			<% end %>
+			<% if @invoice.adjusted? %>
+			<tr class="totals">
+			  <td>&nbsp;</td>
+			  <th>ADJUSTMENT:</th>
+			  <td>&nbsp;</td>
+			  <td><%= @invoice.adjustment_reason %></td>				
+			  <td><%= number_to_currency @invoice.adjustment %></td>
+			</tr>
+			<% end %>
+		<% end %>
+		<tr class="totals">
+		  <td>&nbsp;</td>
+		  <th>TOTAL:</th>
+		  <td>&nbsp;</td>
+		  <td><%= display_hours(@invoice) %></td>				
+		  <td><%= number_to_currency @invoice.total %></td>
+		</tr>		
+		</table>
+	</div>
+
+	<div id="payment">
+		<p><%= USER_CONFIG[:payment_info] %></p>
+		<p><%= @invoice.note %></p>
+	</div>
+	
+	<div id="balanceDue">
+		<p>BALANCE DUE: <%= number_to_currency @invoice.total %></p>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<%= flash_messages %>
+
+<h1><%= @customer.name %></h1>
+
+<p><label>Contact:</label> <%= display_contact(@customer.contact) %></p>
+</dl>
+
+<h2>Invoices</h2>
+<table class="list">
+<tr>
+	<th>Number</th>
+	<th>Date</th>
+	<th>Status</th>
+	<th>Total Hours</th>
+	<th>Amount</th>
+</tr>
+<% @customer.invoices.each do |invoice| %>
+<tr>
+	<td><%= link_to invoice.number,invoice_path(invoice.id) %></td>
+	<td><%= invoice.date.strftime("%m-%d-%Y") %></td>
+	<td><%= invoice.status %></td>
+  	<td><%= invoice.total_hours %></td>				
+	<td><%= number_to_currency invoice.total %></td>
+</tr>
+<% end %>
+</table>
+</ul>
+
+<h2>Totals</h2>
+<ul>
+<li><strong>Total New :</strong> <%= number_to_currency @customer.total_by_status('new') %></li>
+<li><strong>Total Open:</strong> <%= number_to_currency @customer.total_by_status('open') %></li>
+<li><strong>Total Paid:</strong> <%= number_to_currency @customer.total_by_status('paid') %></li>
+</ul>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

@@ -1,0 +1,10 @@
+page.replace_html 'line_items', :partial =>  'invoices/table'
+if @line_items.blank?
+  
+else
+  page.flash_messages
+  @line_items.each do |line_item|
+    page.visual_effect :highlight, "line_item_#{line_item.id}", :duration => 2
+  end
+end
+page.call 'initInvoiceEditUI'

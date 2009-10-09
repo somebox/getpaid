@@ -1,0 +1,28 @@
+<h1>Time Slips</h1>
+
+<div id="search">
+<% form_tag :url => timeslips_path, :method => 'get' do %>
+	<%= customer_select_tag %>
+	<p><%= @timeslips.total_entries %> timeslips</p>
+<% end %>
+</div>
+
+<%= will_paginate @timeslips %>
+
+<div class="buttons">
+	<p><%= link_to 'New timeslip', new_timeslip_path, :class=>'new' %></p>
+</div>
+
+<table class="list">
+  <%= render :partial => 'row_header' %>
+  <% if @timeslips %>
+	<% for timeslip in @timeslips %>
+		<%= render :partial => 'row', :object => timeslip %>
+	<% end %>
+  <% else %>
+	<tr><td colspan="5">No timeslips found.</td></tr>
+  <% end %>
+</table>
+
+<br />
+

@@ -1,0 +1,37 @@
+<table>
+<tr>
+	<th>Invoice Number:</th>
+	<td><%= text_field :invoice, :number %></td>
+</tr>
+<tr>
+	<th>Customer:</th>
+	<td><%= select :invoice, :customer_id, @customers.map{|c| [c.name, c.id]} %></td>
+</tr>
+<tr>
+	<th>Status:</th>
+	<td><%= select :invoice, :status, Invoice::STATUS_TYPES.map{|s| [s.titleize, s]} %></td>
+</tr>		
+<tr>
+	<th>Date:</th>
+	<td><%= date_select :invoice, :date %></td>
+</tr>
+<tr>
+	<th>&nbsp;</th>
+	<td><%= link_to_function "more...", "toggleExtraInvoiceRows()" %></td>
+</tr>
+<tr id="discount_row" style="display:none">
+	<th>Discount:</th>
+	<td><%= select :invoice, :discount, Invoice::DISCOUNTS.map{|d| ["#{d*100}%", d]} %>
+		<label>Reason:</label>
+		<%= text_field :invoice, :discount_reason %>	
+	</td>
+</tr>
+<tr id="adjustment_row" style="display:none">
+	<th>Adjustment:</th>
+	<td>
+		<%= text_field :invoice, :adjustment, :size => 8 %>
+		<label>Reason:</label>
+		<%= text_field :invoice, :adjustment_reason %>		
+	</td>
+</tr>
+</table>

@@ -1,0 +1,23 @@
+# MySQL (default setup).  Versions 5.0 and 5.1 were used to develop this app initially.
+
+development:
+  adapter: mysql
+  database: getpaid_dev
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql
+  database: getpaid_test
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql
+  database: getpaid_production
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+

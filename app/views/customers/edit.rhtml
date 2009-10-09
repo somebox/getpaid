@@ -1,0 +1,13 @@
+<% @page_title = "Edit customer" %>
+<%= error_messages_for 'customer' %>
+
+<h1>Edit customer</h1>
+<p>Make changes to this customer using the form below.</p>
+
+<% form_for(:customer, :url => customer_path(@customer), :html => { :method => :put }) do |f| %>
+	<%= render(:partial => 'form', :object => @customer) %>
+	<%= update_button %>
+<% end %>
+
+<%= link_to 'Show', customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

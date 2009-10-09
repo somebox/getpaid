@@ -1,0 +1,15 @@
+<tr id="line_item_<%= row.id %>" class="checkable_row <%= cycle("", "alt") %>">
+	<td><%= check_box_tag 'line_item_ids[]', row.id, false, :id => "check_#{row.id}", :class=>"toggleable" %></td>
+	<td class="nowrap"><%= row.date_performed %></td>
+	<td><%= row.description %></td>
+	<td><%= show_service(row) %></td>
+	<td><%= show_quantity(row) %></td>
+	<td class="nowrap"><%= rate_and_units(row) %></td>
+	<td><%= number_to_currency row.total %></td>
+	<td>
+		<div class="controls">
+		<%= link_to_remote "Edit", :url => edit_line_item_path(row), :method => :get, :class=>'button' %>
+		<%= link_to_remote "Delete", :url => line_item_path(row), :method => :delete, :confirm =>'Are you sure you want to delete this charge?', :class=>'button' %>		
+		</div>
+	</td>
+</tr>

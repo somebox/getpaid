@@ -1,0 +1,19 @@
+<h1>Contacts</h1>
+<div class="buttons"><p><%= link_to 'New contact', new_contact_path, :class=>'new' %></p></div>
+<table class="list">
+	<tr>
+		<th>Name</th><th>Customer</th><th>Email</th><th>Action</th>
+	</tr>
+	<% for contact in @contacts %>
+	<tr class="<%= cycle("", "alt") %>">
+		<td><%= link_to contact.name, contact_path(contact) %></td>
+		<td><%= customer_list(contact) %></td>
+		<td><%= auto_link contact.email %></td>		
+		<td><div class="controls">
+			<%= link_to 'Edit', edit_contact_path(contact) %> |
+			<%= link_to 'Delete', contact_path(contact), :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>

@@ -1,0 +1,34 @@
+<table>
+<tr>
+	<th>First Name:</th>
+	<td><%= f.text_field :first_name %></td>
+</tr>
+<tr>
+	<th>Last Name:</th>
+	<td><%= f.text_field :last_name %></td>
+</tr>
+<tr>
+	<th>Email:</th>
+	<td><%= f.text_field :email %></td>
+</tr>
+<tr>
+	<th>Phone:</th>
+	<td><%= f.text_field :phone %></td>
+</tr>	
+<tr>
+	<th>Sub-contractor?</th>
+	<td><%= f.check_box :subcontractor %></td>
+</tr>
+<tr <%= @contact.subcontractor? ? '' : 'style="display:none"' %> id="commission_row">
+	<th>Commission:</th>
+	<td><%= f.text_field :commission, :size => 10 %> (0.0 - 1.0)</td>
+</tr>
+<% if !@contact.new_record? %>
+<tr>
+	
+	<th>Customers/Projects:</th>
+	<td><%= customer_list(@contact) %></td>
+</tr>
+<% end %>
+</table>
+<%= observe_field 'contact_subcontractor', :function => "$('commission_row').toggle()" %>

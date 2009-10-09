@@ -1,0 +1,14 @@
+<tr>
+	<th style="width:20px;">
+		<input type='checkbox' id="toggle_box" value='Toggle Selected' title="toggle select boxes below" />
+	</th>
+	<th style="width:100px;">Date</th>
+	<th style="width:140px;">Description</th>
+	<th style="width:100px;">Service</th>
+	<th style="width:60px;">Quan.</th>
+	<th style="width:100px;">Rate</th>
+	<th style="width:100px;">Total</th>
+	<th class="controls" style="width:130px;">&nbsp;</th>
+</tr>
+
+<%= observe_field 'toggle_box', :function => "toggleAllRowBoxes()" %>

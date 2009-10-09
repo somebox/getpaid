@@ -1,0 +1,11 @@
+if @invoices.blank?
+  page.hide 'search_results'
+else
+  page.replace_html 'search_results', ''  
+  page.show 'search_results'
+  @invoices.each do |invoice|
+    link = link_to_function(invoice.title, "chooseQuickFind(#{invoice.number})")
+    li = content_tag(:li, link) 
+    page.insert_html :bottom, 'search_results', li
+  end
+end

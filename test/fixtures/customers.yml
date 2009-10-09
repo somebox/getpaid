@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+somebox:
+  id: 1
+  name: Somebox LLC
+  contact_id: 1
+  short_name: somebox  
+  address: 343 State Street
+  city: Brooklyn
+  state: NY
+  postal: 11217
+acme:
+  id: 2
+  name: Acme Widgets
+  contact_id: 2
+  short_name: acme
+  address: 34-40 Front Street
+  address_2: Building 2
+  city: Indian Orchard
+  state: MA
+  postal: 01151
+microsoft:
+  id: 3
+  name: Microsoft Inc
+  contact_id: 3
+  short_name: msft
+  address: 1 redmond way
+  address_2: ''
+  city: Redmond
+  state: WA
+  postal: 90432
+  
+  

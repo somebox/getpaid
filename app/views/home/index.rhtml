@@ -1,0 +1,22 @@
+<h1>Overview</h1>
+<div id="overview">
+<dl>
+	<dt>Total Unbilled:</dt>
+	<dd><%= number_to_currency Invoice.total_by_status('new') %></dd>
+	<dt>Total Outstanding:</dt>
+	<dd><%= number_to_currency Invoice.total_by_status('open') %></dd>
+	<dt>Year To Date:</dt>
+	<dd><%= number_to_currency Invoice.total_for_year %></dd>
+</dl>
+<h1>Recent Unbilled Work</h1>
+
+<% Invoice.find_recent_new.each do |invoice| %>
+	<% if invoice.recent_line_items.size > 0 %>
+		<h3>Invoice <%= link_to invoice.number, edit_invoice_path(invoice) %> (<%= invoice.customer.name %>)</h3>
+		<table class="list">
+		<%= render :partial => 'line_items/row_header' %>
+		<%= render :partial => 'line_items/row', :collection => invoice.recent_line_items %>
+		</table>
+	<% end %>
+<% end %>
+</div>

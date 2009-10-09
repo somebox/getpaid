@@ -1,0 +1,18 @@
+<table>
+<tr>
+	<th>Name:</th>
+	<td><%= f.text_field :name %>
+</tr>
+<tr>
+	<th>Default Rate:</th>
+	<td><%= f.text_field :default_rate %>
+</tr>
+<tr>
+	<th>Unit:</th>
+	<td><%= select :service, :unit, %w(hour month one-time).map{|u| [u.titleize, u]} %>
+</tr>
+<tr>
+	<th>Description:</th>
+	<td><%= f.text_field :description %>
+</tr>		
+</table>

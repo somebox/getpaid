@@ -1,0 +1,22 @@
+<%= flash_messages %>
+
+<h1>View Contact</h1>
+<dl class="show">
+	<dt>Name:</dt>
+	<dd><%= @contact.first_name %> <%= @contact.last_name %></dd>
+    <dt>Customers/Projects:</dt>
+    <dd><%= customer_list(@contact) %></dd>
+	<dt>Email:</dt>
+	<dd><%= mail_to(@contact.email) %></dd>
+	<dt>Phone:</dt>
+	<dd><%= display_or_msg(@contact.phone) %></dd>
+	<dt>Created:</dt>
+	<dd><%= format_as_date_detail @contact.created_at %></dd>
+	<dt>Last Modified:</dt>
+	<dd><%= format_as_date_detail @contact.updated_at %></dd>		
+</dl>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
+
+

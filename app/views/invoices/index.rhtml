@@ -1,0 +1,43 @@
+<h1>Invoices
+	<% if @current_customer %>
+	<%= customer_subhead %>
+	<% end %>
+</h1>
+
+<div id="notice" style="display:none"><h2 id="notice_now"></h2></div>
+
+<div id="search">
+<% form_tag invoices_url, :method => 'get' do %>
+	Show: <%= customer_select_tag %>
+	<%= status_select_tag %>
+	<p><%= @invoices.total_entries %> invoices</p>
+<% end %>
+</div>
+
+<%= will_paginate @invoices %>
+
+<% form_remote_tag :url => invoice_batch_status_url, :method => :get, :html => {:class => 'list'} do %>	
+	<div id="batch_commands" style="display:none">
+		With selected: change status to
+		<%= select_tag :status, options_for_select(Invoice::STATUS_TYPES) %>
+		<%= submit_tag "Go" %>
+	</div>
+
+	<table class="list">
+	  <%= render :partial => 'row_header' %>
+	  <% if @invoices %>
+		<% for invoice in @invoices %>
+			<%= render :partial => 'row', :object => invoice %>
+		<% end %>
+	  <% else %>
+		<tr><td colspan="5">No invoices found.</td></tr>
+	  <% end %>
+	</table>
+
+	<div class="buttons">
+		<p><%= link_to 'New invoice', new_invoice_path(:invoice => {:customer_id => @current_customer}), :class => 'new' %></p>
+	</div>
+
+<% end %>
+
+<%= add_onload 'initInvoiceListUI()' %>

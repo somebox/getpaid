@@ -1,0 +1,48 @@
+<h2>Edit Line Item</h2>
+<%= error_messages_for :line_item %>
+<% remote_form_for(@line_item) do %>
+	<%= link_to_function image_tag('/images/x_small.gif'), 'hidePopup()', :title => 'Cancel and close', :class => 'close_button' %>
+	<table class="popup_form">
+	<tr>
+		<th>Date:</th>
+		<td><%= text_field 'line_item', 'date_performed', :size=>11 %></td>
+	</tr>
+	<tr>
+		<th>Description:</th>
+		<td><%= text_area 'line_item', 'description', :rows=>2, :cols=>32 %></td>
+	</tr>
+	<tr>
+		<th>Service:</th>
+		<td>
+		<%= select 'line_item', :service_id, @services.map{|s|[truncate(s.name),s.id]} %>
+		</td>
+	</tr>
+	<tr>
+		<th>Subcontractor:</th>
+		<td><%= subcontractor_select_tag %></td>
+	<tr>
+		<th>Quantity:</th>
+		<td><%= text_field 'line_item', 'quantity', :size=>4, :autocomplete => 'off' %>
+	</tr>
+	<tr>
+		<th>Rate:</th>	
+		<td><%= text_field 'line_item', 'rate', :size=>4, :maxsize=>10, :autocomplete => 'off' %>/<%= @line_item.service.unit %></td>
+	</tr>
+	<tr>
+		<th>Total:</th>
+		<td id="line_item_total">
+			<%= number_to_currency @line_item.total %>
+		</td>
+	</tr>
+	</table>
+	
+	<%= hidden_field 'line_item', 'invoice_id' %>
+	
+	<div class="buttons">
+		<%= submit_tag 'Save' %>
+	</div>
+	
+	<%= observe_field 'line_item_quantity', :frequency => 0.25, :function => 'recalculateLineItem()' %>
+	<%= observe_field 'line_item_rate', :frequency => 0.25, :function => 'recalculateLineItem()' %>
+ 	<%= draggable_element "popup-container", {:change => 'function(draggable_element, droppable_element, event) {popupShadow()}'} %>
+<% end %>

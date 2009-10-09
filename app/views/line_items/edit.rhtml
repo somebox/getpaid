@@ -1,0 +1,12 @@
+<h1>Editing line_item</h1>
+
+<%= error_messages_for :line_item %>
+
+<% form_for(:line_item, :url => line_item_path(@line_item), :html => { :method => :put }) do |f| %>
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>

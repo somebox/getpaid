@@ -1,0 +1,32 @@
+<h1>Line Items
+	<% if @current_customer %>
+	<%= customer_subhead %>
+	<% end %>
+</h1>
+<div id="search">
+<% form_tag :url => line_items_path, :method => 'get' do %>
+	<%= customer_select_tag %>
+	<%= contact_select_tag %>
+	<p><%= @line_items.total_entries %> line_items</p>
+<% end %>
+</div>
+
+<%= will_paginate @line_items %>
+
+<div class="buttons">
+	<p><%= link_to 'New line_item', new_line_item_path, :class=>'new' %></p>
+</div>
+
+<table class="list">
+  <%= render :partial => 'row_header' %>
+  <% if @line_items %>
+	<% for line_item in @line_items %>
+		<%= render :partial => 'row', :object => line_item %>
+	<% end %>
+  <% else %>
+	<tr><td colspan="5">No line_items found.</td></tr>
+  <% end %>
+</table>
+
+<br />
+

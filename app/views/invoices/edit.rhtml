@@ -1,0 +1,26 @@
+<h1>Edit Invoice #<%= @invoice.number %></h1>
+
+<%= error_messages_for :invoice %>
+
+<div id="invoice">
+	<% form_for(@invoice, :url => invoice_path) do |f| %>
+		<%= render :partial => 'form' %>
+		<%= update_button %>
+	<% end %>
+
+    <%= flash_messages %>
+	
+	<% form_remote_tag :url => invoice_batch_edit_path(@invoice.id) do %>	
+		<%= render :partial => 'batch_commands' %>	
+		<table id="line_items">
+			<%= render :partial => 'table' %>
+		</table>
+	<% end %>	
+	
+	<div class="buttons">
+		<%= link_to_remote "Add Another...", :url => new_line_item_path(:invoice_id => @invoice.id), :method => :get, :html => {:class => 'new'} %>
+	</div>
+</div>
+<%= link_to 'Show', invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
+<%= add_onload 'initInvoiceEditUI()' %>

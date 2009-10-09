@@ -1,0 +1,8 @@
+<div id="flash_messages">
+    <div id="notice" <%= flash[:notice].blank? ? 'style="display:none"' : '' %>>
+        <h2 id="notice_now"><%= flash[:notice] %></h2>
+    </div>
+    <div id="error" <%= flash[:error].blank? ? 'style="display:none"' : '' %>>
+        <h2 id="error_now"><%= flash[:error] %></h2>
+    </div>
+</div>

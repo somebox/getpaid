@@ -1,0 +1,19 @@
+<tr id="line_item_<%= @line_item.id %>" class="<%= cycle("", "alt") %>">
+	<td><%= text_field 'line_item', 'date_performed', :size=>11 %></td>
+	<td><%= text_area 'line_item', 'description', :rows=>2, :cols=>16 %></td>
+	<td>
+		<%= select 'line_item', :service_id, @services.map{|c|[truncate(c.description,12),c.id]} %>
+		<%= observe_field('line_item_service_id', 							
+							:url => update_line_item_url(@line_item.id),
+							:with => line_item_parts) %>
+	</td>
+	<td><%= text_field 'line_item', 'quantity', :size=>4 %>
+	<td style="white-space: nowrap;"><%= text_field 'line_item', 'rate', :size=>4, :maxsize=>10 %>/<%= @line_item.service.unit %></td>
+	<td><span id="total_<%= @line_item.id %>"><%= number_to_currency @line_item.total %></span></td>
+	<td>
+		<div class="controls">
+			<%= submit_tag :save %>
+			<%= hidden_field 'line_item', 'id' %>
+		</div>
+	</td>
+</tr>

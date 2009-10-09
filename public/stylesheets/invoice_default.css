@@ -1,0 +1,184 @@
+/* Begin Typography & Colors */
+body {
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: 'Lucida Grande', Arial, Verdana, Sans-Serif;
+	background-color: white;
+	color: black;
+	margin: 0;
+ 	padding: 0;
+	background-color: #fff;
+}
+a {
+	color: #37779f;
+	text-decoration: none;
+	padding: 2px;
+}
+a:hover {
+	color: white;
+	background-color: #37779f;
+}
+/* main page container */
+#content {
+	margin: 2em;
+	width: 770px;
+}
+/* all lists on this page share */
+#content ul {
+	list-style: none;
+	font-size: 1.2em;
+}
+/* the logo and invoice top */
+div#header {
+	display: block;
+	float: left;
+	height: auto;
+}
+#header img {
+	float: left;
+	margin: 10px;
+}
+#header ul {
+	display: block;
+	float: left;
+	margin: 10px 3px;
+}
+#header h1 {
+	display: block;
+	float: right;
+	font-size: 2.8em;
+	margin: 25px 20px;
+	color: #8899bb;
+}
+
+pre {
+  background-color: #eee;
+  padding: 0px;
+  font-size: 1.3em;
+  width:25em;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* date and invoice number */
+div#invoiceInfo {
+	display: block;
+	float: right;
+	clear: left;
+	border: 1px solid #999;
+	width: 240px;
+	margin: 10px 0;
+}
+#invoiceInfo dl {
+	font-size: 1.2em;
+	display: block;
+	padding: 0;
+	margin: 10px;	
+}
+#invoiceInfo dl dt {
+	display: block;
+	float: left;
+	font-weight: bold;
+	text-align: left;
+	width: 100px;
+	margin-bottom: 0.25em;
+}
+#invoiceInfo dl dd {
+	display: block;
+	width: 100px;
+	margin-left: 110px;
+	margin-bottom: 0.4em;
+	padding-left: 2px;
+}
+/* payer name and address */
+div#billTo {
+	display: block;
+	float: left;
+	width: 300px;
+	margin: 10px 0;
+	border: 1px solid #999;
+}
+#billTo h2 {
+	display: block;
+	margin: 10px 10px 0 10px;
+	padding: 0;
+}
+#billTo ul {
+	float: left;
+	display: block;
+	margin: 10px;
+	padding: 0;
+}
+/* the nitty gritty of the invoice */
+div#lineItems {
+	clear: left;
+	font-size: 1.2em;
+	border: 1px solid #999;
+}
+#lineItems table {
+	width: 100%;
+	margin: 0;
+	padding: 5px;
+}
+#lineItems table td {
+	border-bottom: 1px solid #ddd;
+	padding: 5px;
+}
+#lineItems table th {
+	font-weight: bold;
+	text-align: left;
+	background-color: #999;
+	color: #fff;
+	padding: 10px;
+	margin: 0;
+}
+#lineItems table tr.totals {
+	font-weight: bold;
+ 	height: 26px;
+	vertical-align: bottom;
+}
+#lineItems tr.totals th {
+	text-align: right;
+	background-color: transparent;
+	border-bottom: 1px solid #ddd;	
+	color: #000;
+}
+
+/* payment address and method */
+#payment {
+	float: left;
+	clear: left;
+	margin: 10px 0;
+	border: 1px solid #999;
+	font-size: 1.2em;
+	width: 48%;
+	height: 100px;	
+}
+#payment ul {
+	float: left;
+	display: block;
+	margin: 10px;
+	padding: 0;
+}
+#payment p {
+	margin: 10px 10px 0 10px;
+}
+/* how much they owe */
+#balanceDue {
+	float: right;
+	margin: 10px 0;
+	padding: 0;
+	border: 1px solid #999;	
+	width: 48%;	
+	height: 100px;	
+	text-align: center;
+}
+#balanceDue p {
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 10px;
+	height: 80px;
+	margin: 30px 0;
+}

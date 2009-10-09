@@ -1,0 +1,22 @@
+<div id="batch_commands">
+	With selected:   
+	<%= select_tag 'command', options_for_select(LineItem::BATCH_COMMANDS) %>
+	&raquo;
+	<%= select_tag 'service_id', options_from_collection_for_select(@services, :id, :name), :style => 'display:none' %>
+	<%= select_tag 'contact_id', options_from_collection_for_select(Contact.subcontractors, :id, :name), :style => 'display:none' %>	
+	<%= text_field_tag 'rate', '', :style => 'display:none' %>
+	<%= text_field_tag 'quantity', '', :style => 'display:none' %>	
+	<%= text_field_tag 'copy_to', '', :style => 'display:none' %>	
+	<%= submit_tag "Go" %>
+</div>
+<ul id="search_results" style="display:none">
+</ul>
+<%= observe_field 'copy_to', :url => invoice_search_path, 
+						    :method => :get,
+							:condition => "!$F('copy_to').blank()",
+							:frequency => 1, 
+							:with => "'query='+$F('copy_to')"
+#							:loading => "$('spinner').show()",
+#							:loaded => "$('spinner').hide()"
+						-%>
+

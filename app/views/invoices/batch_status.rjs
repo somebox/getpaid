@@ -1,0 +1,4 @@
+@invoices.each do |invoice|
+  page.replace "invoice_row_#{invoice.id}", :partial => "row", :object => invoice
+  page.visual_effect :highlight, "invoice_row_#{invoice.id}", :duration => 0.5  
+end

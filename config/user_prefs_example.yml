@@ -1,0 +1,7 @@
+# User-specific preference
+name: "Joe Programmer"
+address1: "123 Main Street"
+address2: "New York, NY 10001"
+company: "My Company" # leave blank if none
+payment_info: 'Please Remit payment via US mail at the provided address.'
+logo: "http://somebox.com/images/somebox-gray.gif"

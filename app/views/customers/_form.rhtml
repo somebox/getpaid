@@ -1,0 +1,34 @@
+<table>
+<tr>
+	<th>Name:</th>
+	<td><%= text_field :customer, :name %>
+</tr>
+<tr>
+	<th>Short Name:</th>
+	<td><%= text_field :customer, :short_name %>
+</tr>
+<tr>
+	<th>Address:</th>
+	<td><%= text_field :customer, :address %>
+</tr>
+<tr>
+	<th>Address (line 2):</th>
+	<td><%= text_field :customer, :address_2 %>
+</tr>
+<tr>
+	<th>City:</th>
+	<td><%= text_field :customer, :city %>
+</tr>
+<tr>
+	<th>State:</th>
+	<td><%= text_field :customer, :state %>
+</tr>
+<tr>
+	<th>Zip/Postal:</th>
+	<td><%= text_field :customer, :postal %>
+</tr>
+<tr>
+    <th>Contact:</th>
+    <td><%= contact_select(@customer) %></td> 
+</tr>
+</table>

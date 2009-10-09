@@ -1,0 +1,12 @@
+Invoice for Printing
+- fix link to paypal on invoice
+
+Invoice Editing
+- update entire partial line_item date change
+- when editing a new invoice, show first blank line_item
+- remember what the last service/rate was used when adding line items
+
+
+Invoice model
+- add discount (percentage or amount)
+

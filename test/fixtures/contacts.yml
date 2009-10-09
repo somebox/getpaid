@@ -1,0 +1,37 @@
+--- 
+jeremy: 
+  id: 1
+  first_name: Jeremy
+  last_name: Seitz
+  email: jeremy@somebox.com
+  phone: 212-260-5805
+  updated_at: <%= 2.weeks.ago %>
+  created_at: <%= 3.years.ago %>
+betsy: 
+  id: 2
+  first_name: Betsy
+  last_name: Davis
+  email: betsy@hotmail.com
+  phone: 413-222-0869
+  updated_at: <%= 1.day.ago %>
+  created_at: <%= 5.years.ago %>
+cathy: 
+  id: 3
+  first_name: Cathy
+  last_name: Smith
+  email: csmith@gmail.org
+  phone: 212-821-9487
+  updated_at: <%= 1.year.ago %>
+  created_at: <%= 2.years.ago %>
+subcontractor:
+  id: 4
+  first_name: joe
+  last_name: coder
+  subcontractor: 1
+  commission: 0.25
+myself:
+  id: 5
+  first_name: jeremy
+  last_name: seitz
+  subcontractor: 1
+  commission: 1.0

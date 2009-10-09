@@ -1,0 +1,13 @@
+<h1>New Contact</h1>
+
+<%= error_messages_for :contact %>
+
+<% form_for(:contact, :url => contacts_path) do |f| %>
+	<%= render(:partial => 'form', :object => @contact, 
+			:locals => {
+				:button_label => 'Create Contact',
+				:f => f
+			 }) %>
+	<%= update_button %>			
+<% end %>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title><%= @page_title %></title>
+		<%= stylesheet_link_tag "styles" %>
+		<%= javascript_include_tag :defaults %> 
+    </head>
+    <body id="body">
+		<div id="popup" style="display:none">
+			<div id="popup-bg"></div>
+			<div id="popup-shadow"></div>
+			<div id="popup-container">
+				<h2>Test</h2>
+			</div>
+		</div>
+        <div id="header">
+			<h1>GetPaid!</h1>
+			<% if ENV['RAILS_ENV'] != 'production' %>
+			<h3 class="warning">
+				DEVELOPMENT MODE!			
+			</h3>
+			<% end %>
+			<div id="nav">
+				<ul>
+					<%= main_nav %>	
+				</ul>
+			</div>	
+		</div>
+        <div id="content">
+			<% if flash[:notice] %><div id="notice"><h2><%= flash[:notice] %></h2></div><% end %>
+			<% if flash[:error] %><div id="error"><h2><%= flash[:error] %></h2></div><% end %>
+			<%= @content_for_layout %>
+		</div>
+        <div id="footer">
+			<p>GetPaid</p>
+		</div>
+    </body>
+</html>

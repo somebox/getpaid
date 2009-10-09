@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+code:
+  id: 1
+  name: code
+  default_rate: 65
+  unit: hour
+  description: Programming
+pm:
+  id: 2
+  name: pm
+  default_rate: 65
+  unit: hour
+  description: Project Management
+consult:
+  id: 3
+  name: consult
+  default_rate: 65
+  unit: hour
+  description: Consulting
+hosting:
+  id: 4
+  name: hosting
+  default_rate: 20
+  unit: month
+  description: Web Hosting

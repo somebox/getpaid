@@ -1,0 +1,117 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  invoice_id: 1
+  service_id: 1
+  date_performed: 2006-04-11
+  quantity: 4.5
+  rate: 65
+  description: fixed some bugs  
+two:
+  id: 2
+  invoice_id: 1
+  service_id: 1
+  date_performed: 2006-04-12
+  quantity: 6
+  rate: 65  
+  description: closed ticket #14
+three:
+  id: 3
+  invoice_id: 1
+  service_id: 1
+  date_performed: 2006-04-15
+  quantity: 7
+  rate: 65
+  description: wrote a new script for signup
+override_default_rate:
+  id: 4
+  invoice_id: 1
+  service_id: 3
+  date_performed: 2006-04-16
+  quantity: 6
+  rate: 100
+  description: trained new employee
+discounted:
+  id: 5
+  invoice_id: 3
+  service_id: 1
+  date_performed: 2007-08-10
+  quantity: 8
+  rate: 100
+  description: did some work
+discounted2:
+  id: 6
+  invoice_id: 3
+  service_id: 1
+  date_performed: 2007-08-11
+  quantity: 2
+  rate: 100
+  description: did some more work
+adjustment:
+  id: 7
+  invoice_id: 4
+  service_id: 1
+  date_performed: 2007-09-09
+  rate: 100
+  quantity: 2
+  description: test
+simple:
+  id: 8
+  invoice_id: 5
+  service_id: 3
+  date_performed: 2007-01-01
+  rate: 100
+  quantity: 10
+  contact_id: 5
+  description: test
+sub1:
+  id: 9
+  invoice_id: 6
+  service_id: 3
+  contact_id: 4
+  date_performed: 2008-02-01
+  rate: 100
+  quantity: 6
+  description: subcontracted task 1
+sub2:
+  id: 10
+  invoice_id: 6
+  service_id: 3
+  contact_id: 4
+  date_performed: 2008-02-01
+  rate: 100
+  quantity: 2
+  description: subcontracted task 2
+split1:
+  id: 11
+  invoice_id: 7
+  service_id: 3
+  date_performed: 2008-12-02
+  rate: 150
+  quantity: 5
+  description: worked today [h:2.5]
+split2:
+  id: 12
+  invoice_id: 7
+  service_id: 2
+  date_performed: 2008-12-03
+  rate: 150
+  quantity: 3
+  description: worked today [h:1]
+split3:
+  id: 13
+  invoice_id: 7
+  service_id: 3
+  contact_id:
+  date_performed: 2008-12-05
+  rate: 150
+  quantity: 5.75
+  description: worked today [h:5.75]
+nosplit:
+  id: 14
+  invoice_id: 7
+  service_id: 4
+  date_performed: 2008-12-06
+  rate: 150
+  quantity: 4
+  description: no split

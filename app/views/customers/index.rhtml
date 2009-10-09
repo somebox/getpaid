@@ -1,0 +1,19 @@
+<h1>Customers</h1>
+<div class="buttons"><p><%= link_to 'New customer', new_customer_path, :class=>'new' %></p></div>
+<table class="list">
+	<tr>
+		<th>Name</th><th>Short Name</th><th>Contact</th><th>Action</th>
+	</tr>
+	<% for customer in @customers %>
+	<tr class="<%= cycle("", "alt") %>">
+		<td><%= link_to customer.name, customer_path(customer) %></td>
+		<td><%= customer.short_name %></td>		
+		<td><%= display_contact(customer.contact) %></td>		
+		<td><div class="controls">
+			<%= link_to 'Edit', edit_customer_path(customer) %> | 
+			<%= link_to 'Delete', customer_path(customer), :confirm => 'Are you sure?', :method => :delete %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>

@@ -1,0 +1,16 @@
+<% if @invoice.show_subtotal? %>
+<tr id="subtotal">
+	<td colspan="6" style="text-align:right">Subtotal:</td>
+	<td colspan="2"><%= number_to_currency @invoice.subtotal %></td>
+</tr>
+<% end %>
+<% if @invoice.discounted? %>
+<tr id="discount">
+	<td colspan="6" style="text-align:right">Discount:</td>
+	<td colspan="2"><%= number_to_currency (-@invoice.subtotal * @invoice.discount) %> (<%= @invoice.discount * 100 %>%)</td>
+</tr>
+<% end %>
+<tr id="total">
+	<th colspan="6" style="text-align:right">Total:</th>
+	<th colspan="2"><%= number_to_currency @invoice.total %></th>
+</tr>

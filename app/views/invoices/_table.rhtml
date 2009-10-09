@@ -1,0 +1,8 @@
+<% if @invoice %>
+<%= render :partial => 'line_items/row_header' %>
+<%= render :partial => 'line_items/row', :collection => @invoice.line_items %>
+<tr id="bottom">
+	<td>&nbsp;</td>
+</tr>			
+<%= render :partial => 'line_items/row_total' %>
+<% end %>
