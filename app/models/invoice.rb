@@ -14,8 +14,9 @@ class Invoice < ActiveRecord::Base
 
   # class methods
 
-  def self.quick_find(query)
-    self.find( :all, 
+  def self.quick_find(query, page=1)
+    self.paginate( :all, 
+               :page => page,
                :conditions =>[ %Q(
                   customers.name like '%%%s%%' OR 
                   customers.short_name like '%%%s%%' OR 

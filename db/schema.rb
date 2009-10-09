@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20) do
     t.integer "contact_id"
   end
 
+  add_index "line_items", ["invoice_id"], :name => "invoice_id"
+
   create_table "schema_info", :id => false, :force => true do |t|
     t.integer "version"
   end

@@ -7,11 +7,14 @@ class InvoicesController < ApplicationController
   def index
     @current_customer = sticky_param(:customer_id)
     @current_status = sticky_param(:status)
-    @invoices = Invoice.paginate_with_filters({
+    if params[:search].present?
+      @invoices = Invoice.quick_find(params[:search])
+    else
+      @invoices = Invoice.paginate_with_filters({
                   :customer_id => @current_customer,
                   :status => @current_status
                 }, {:page => params[:page], :order=>'date,number'})
-                        
+    end
     respond_to do |format|
       format.html {
         @customers = Customer.find_invoiced
