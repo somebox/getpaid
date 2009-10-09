@@ -1,1 +1,28 @@
-somebox billing app
+GetPaid (working title)
+
+This is a simple Rails billing app I started in 2006. 
+It's very basic and certain parts of it are unfinished, 
+but for basic billing, it's worked well for me.
+
+Features:
+    - Invoicing
+    - Service rates
+    - Subcontracting support
+    - Basic contact management
+    - Simple layout
+    
+Setup
+    1. Copy config/database.example.yml to config/database.yml, and edit.
+    2. Copy config/user_prefs.example.yml to config/user_prefs.yml and edit.
+    3. rake db:create
+    4. run ./go
+    5. open browser to http://localhost:3001 and start billing!
+    
+
+Jeremy Seitz
+jeremy@somebox.com
+
+
+
+Released as open source, 2009.
+MIT License (http://www.opensource.org/licenses/mit-license.php)
