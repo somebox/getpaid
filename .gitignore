@@ -1,0 +1,4 @@
+config/database.yml
+config/user_prefs.yml
+log/*
+db/schema.rb
