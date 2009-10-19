@@ -12,11 +12,13 @@ Features:
     - Simple layout
     
 Setup
-    1. Copy config/database.example.yml to config/database.yml, and edit.
+    1. Copy config/database_example.yml to config/database.yml, and edit.
     2. Copy config/user_prefs.example.yml to config/user_prefs.yml and edit.
     3. rake db:create
-    4. run ./go
-    5. open browser to http://localhost:3001 and start billing!
+    4. rake db:migrate
+    5. mkdir log
+    6. run ./go
+    7. open browser to http://localhost:3001 and start billing!
     
 
 Jeremy Seitz
