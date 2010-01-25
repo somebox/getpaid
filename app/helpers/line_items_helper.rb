@@ -17,7 +17,7 @@ module LineItemsHelper
   def rate_and_units(line_item)
     ## was displaying nothing for half hour quantities and multiplying for less than one hour????  rate should not change for less than one hour
     #if line_item.quantity.to_f > 1
-      "#{number_to_currency(line_item.rate)}/#{line_item.service.unit}"
+      "#{line_item.rate.to_i}/#{line_item.service.unit}"
     #else
       #raise line_item.rate.to_f.inspect
     #  number_to_currency(line_item.rate.to_f * line_item.quantity.to_f)

@@ -47,11 +47,11 @@
 		</tr>
 		<% @invoice.line_items.each do |line_item| %>
 		<tr>
-		  <td class="nowrap"><%= line_item.date_performed.strftime("%m-%d-%Y") %></td>
+		  <td class="nowrap"><%= line_item.date_performed.strftime(@invoice.date_format) %></td>
 		  <td><strong><%= line_item.service.name.upcase %>:</strong> <%= line_item.contact ? "(#{line_item.contact.initials}) " : '' %><%= line_item.description %></td>
 		  <td><%= rate_and_units(line_item) %></td>
 		  <td><%= show_quantity(line_item) %></td>
-		  <td><%= number_to_currency line_item.total %></td>		
+		  <td><%= number_to_currency(line_item.total, :unit => @invoice.currency) %></td>		
 		</tr>
 		<% end %>		
 		<tr class="totals">
@@ -59,7 +59,7 @@
 		  <th>SUBTOTAL:</th>
 		  <td>&nbsp;</td>
 		  <td><%= display_hours @invoice %></td>				
-		  <td><%= number_to_currency @invoice.subtotal %></td>
+		  <td><%= number_to_currency(@invoice.subtotal, :unit => @invoice.currency) %></td>
 		</tr>		
 		<% if @invoice.show_subtotal? %>
 			<% if @invoice.discounted? %>
@@ -68,7 +68,7 @@
 			  <th>DISCOUNT:</th>
 			  <td>&nbsp;</td>
 			  <td><%= @invoice.discount_reason %> <%= (@invoice.discount * 100).to_i %>% </td>
-			  <td>-<%= number_to_currency @invoice.subtotal * @invoice.discount %></td>
+			  <td>-<%= number_to_currency(@invoice.subtotal * @invoice.discount, :unit => @invoice.currency) %></td>
 			</tr>
 			<% end %>
 			<% if @invoice.adjusted? %>
@@ -77,7 +77,7 @@
 			  <th>ADJUSTMENT:</th>
 			  <td>&nbsp;</td>
 			  <td><%= @invoice.adjustment_reason %></td>				
-			  <td><%= number_to_currency @invoice.adjustment %></td>
+			  <td><%= number_to_currency(@invoice.adjustment, :unit => @invoice.currency) %></td>
 			</tr>
 			<% end %>
 		<% end %>
@@ -86,7 +86,7 @@
 		  <th>TOTAL:</th>
 		  <td>&nbsp;</td>
 		  <td><%= display_hours(@invoice) %></td>				
-		  <td><%= number_to_currency @invoice.total %></td>
+		  <td><%= number_to_currency(@invoice.total, :unit => @invoice.currency) %></td>
 		</tr>		
 		</table>
 	</div>
@@ -97,7 +97,7 @@
 	</div>
 	
 	<div id="balanceDue">
-		<p>BALANCE DUE: <%= number_to_currency @invoice.total %></p>
+		<p>BALANCE DUE: <%= number_to_currency(@invoice.total, :unit => @invoice.currency) %></p>
 	</div>
 </div>
 </body>

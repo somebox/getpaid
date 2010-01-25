@@ -150,6 +150,14 @@ class Invoice < ActiveRecord::Base
     total
   end
   
+  def currency
+    (self.customer.postal =~ /CH/) ? 'CHF&nbsp;' : '$&nbsp;'      
+  end
+  
+  def date_format
+    (self.customer.postal =~ /CH/) ? '%d-%m-%Y' : "%m-%d-%Y"
+  end
+  
   def title
     "#{customer.short_name}-#{number}-invoice-#{date.strftime("%m-%d-%Y")}"
   end
