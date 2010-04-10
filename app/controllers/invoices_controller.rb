@@ -13,7 +13,7 @@ class InvoicesController < ApplicationController
       @invoices = Invoice.paginate_with_filters({
                   :customer_id => @current_customer,
                   :status => @current_status
-                }, {:page => params[:page], :order=>'date,number'})
+                }, {:page => params[:page], :order=>'date desc,number'})
     end
     respond_to do |format|
       format.html {
