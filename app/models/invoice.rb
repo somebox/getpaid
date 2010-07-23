@@ -10,7 +10,7 @@ class Invoice < ActiveRecord::Base
   validates_numericality_of :discount, :adjustment, :allow_nil => true
   
   STATUS_TYPES = %w(new open paid cancelled)
-  DISCOUNTS = [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.75]
+  DISCOUNTS = [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.65, 0.70, 0.75, 0.80, 0.90, 1.00]
 
   # class methods
 
