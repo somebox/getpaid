@@ -11,6 +11,8 @@
 </tr>
 <% end %>
 <tr id="total">
-	<th colspan="6" style="text-align:right">Total:</th>
+	<th colspan="4" style="text-align:right">Hours:</th>
+	<th><%= @invoice.total_hours %></th>
+	<th>Total:</th>
 	<th colspan="2"><%= number_to_currency @invoice.total %></th>
 </tr>
