@@ -1,6 +1,6 @@
 module InvoicesHelper
   def customer_select_tag
-    customers = [['All','']] + @customers.map{|c| [c.name, c.id.to_s]}
+    customers = [['All','']] + @customers.sort{|a,b| a.name.upcase <=> b.name.upcase }.map{|c| [c.name, c.id.to_s]}
     select_tag :customer_id, options_for_select(customers, @current_customer), {:onchange => 'submit();'}
   end
 
