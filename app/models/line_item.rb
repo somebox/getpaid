@@ -15,6 +15,9 @@ class LineItem < ActiveRecord::Base
   def after_initialize
     self.service ||= Service.default
     self.date_performed ||= (invoice ? invoice.last_work_date : DateTime.yesterday)
+    if (who = Contact.find_by_email(USER_CONFIG[:default_contractor]))
+      self.contact = who
+    end
     self.rate ||= service.default_rate
   end
   

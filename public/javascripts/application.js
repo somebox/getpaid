@@ -35,6 +35,7 @@ function showPopup(width){
 	$('popup-bg').setOpacity(0.5);
 	$('popup-shadow').setOpacity(0.2);
 	$('popup-bg').observe('click', function(){ hidePopup();	})
+	$('line_item_date_performed').focus();
 //	Effect.Appear('popup', {duration: 0.2});	
 }
 
