@@ -6,7 +6,10 @@
 	</tr>
 	<% for contact in @contacts %>
 	<tr class="<%= cycle("", "alt") %>">
-		<td><%= link_to contact.name, contact_path(contact) %></td>
+		<td style="white-space:nowrap">
+			<%= link_to contact.name, contact_path(contact) %>
+			(<%= contact.initials %>)
+		</td>
 		<td><%= customer_list(contact) %></td>
 		<td><%= auto_link contact.email %></td>		
 		<td><div class="controls">
