@@ -21,6 +21,7 @@ a:hover {
 #content {
 	margin: 2em;
 	width: 770px;
+	position:relative;
 }
 /* all lists on this page share */
 #content ul {
@@ -30,24 +31,17 @@ a:hover {
 /* the logo and invoice top */
 div#header {
 	display: block;
-	float: left;
 	height: auto;
 }
 #header img {
-	float: left;
-	margin: 10px;
+	padding:0 3px;
+	margin: 0;
 }
 #header ul {
+	color: #666;
 	display: block;
-	float: left;
-	margin: 10px 3px;
-}
-#header h1 {
-	display: block;
-	float: right;
-	font-size: 2.8em;
-	margin: 25px 20px;
-	color: #8899bb;
+	margin: 0;
+	padding: 0 10px;
 }
 
 pre {
@@ -64,41 +58,27 @@ pre {
 
 /* date and invoice number */
 div#invoiceInfo {
+	text-align:right;
 	display: block;
-	float: right;
-	clear: left;
-	border: 1px solid #999;
-	width: 240px;
-	margin: 10px 0;
+	position: absolute;
+	right:0px;
+	top:0px;
+	margin: 5px 12px 0 0;
 }
-#invoiceInfo dl {
-	font-size: 1.2em;
-	display: block;
-	padding: 0;
-	margin: 10px;	
+#invoiceInfo p {
+	margin: 4px 0;
+	font-size: 14px;
 }
-#invoiceInfo dl dt {
-	display: block;
-	float: left;
-	font-weight: bold;
-	text-align: left;
-	width: 100px;
-	margin-bottom: 0.25em;
+#invoiceInfo h1 {
+	font-size: 26px;
+	color: #8899bb;
+	margin:0;
 }
-#invoiceInfo dl dd {
-	display: block;
-	width: 100px;
-	margin-left: 110px;
-	margin-bottom: 0.4em;
-	padding-left: 2px;
-}
+
 /* payer name and address */
 div#billTo {
 	display: block;
-	float: left;
-	width: 300px;
-	margin: 10px 0;
-	border: 1px solid #999;
+	margin: 20px 0 0 0;
 }
 #billTo h2 {
 	display: block;
@@ -106,7 +86,6 @@ div#billTo {
 	padding: 0;
 }
 #billTo ul {
-	float: left;
 	display: block;
 	margin: 10px;
 	padding: 0;
@@ -115,29 +94,32 @@ div#billTo {
 div#lineItems {
 	clear: left;
 	font-size: 1.2em;
-	border: 1px solid #999;
 }
 #lineItems table {
-	width: 100%;
-	margin: 0;
-	padding: 5px;
+	border-collapse: collapse;
+	margin: 0 0 0 10px;
+	padding: 10px 10px 0 4px;
+}
+#lineItems table td, #lineItems table th{
+	padding: 10px 20px 10px 0;
 }
 #lineItems table td {
 	border-bottom: 1px solid #ddd;
-	padding: 5px;
+}
+#lineItems table thead{
+	border-bottom:1px solid #888;
 }
 #lineItems table th {
 	font-weight: bold;
 	text-align: left;
-	background-color: #999;
-	color: #fff;
-	padding: 10px;
+	color: #888;
 	margin: 0;
 }
 #lineItems table tr.totals {
 	font-weight: bold;
  	height: 26px;
 	vertical-align: bottom;
+	background-color:#eee;
 }
 #lineItems tr.totals th {
 	text-align: right;
@@ -150,7 +132,7 @@ div#lineItems {
 #payment {
 	float: left;
 	clear: left;
-	margin: 10px 0;
+	margin: 10px 0 10px 10px;
 	border: 1px solid #999;
 	font-size: 1.2em;
 	width: 48%;

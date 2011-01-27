@@ -11,20 +11,14 @@
 	<div id="header">
     	<%= image_tag USER_CONFIG[:logo] %>
 		<ul>
-			<li><%= USER_CONFIG[:name] %></li>
 			<li><%= USER_CONFIG[:address1] %></li>
 			<li><%= USER_CONFIG[:address2] %></li>
-		</ul>
-		<h1>Invoice</h1>
+		</ul>		
 	</div>
 
 	<div id="invoiceInfo">
-		<dl>
-			<dt>Date</dt>
-			<dd><%= @invoice.date.strftime("%m-%d-%Y") %></dd>
-			<dt>Invoice #</dt>
-			<dd><%= @invoice.number %></dd>
-		</dl>
+		<h1>Invoice <%= @invoice.number %></h1>
+		<p><%= @invoice.date.strftime("%b %d, %Y") %></p>
 	</div>
 
     <div id="billTo">
@@ -38,13 +32,13 @@
 
 	<div id="lineItems">
 	<table>
-		<tr>
+		<thead>
 		  <th style="width:90px">DATE</th>
 		  <th>TASK</th>
 		  <th>RATE</th>
 		  <th>TIME</th>
 		  <th>TOTAL</th>				
-		</tr>
+		</thead>
 		<% @invoice.line_items.each do |line_item| %>
 		<tr>
 		  <td class="nowrap"><%= line_item.date_performed.strftime(@invoice.date_format) %></td>
