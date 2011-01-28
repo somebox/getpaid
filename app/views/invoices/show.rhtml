@@ -33,11 +33,13 @@
 	<div id="lineItems">
 	<table>
 		<thead>
+			<tr>
 		  <th style="width:90px">DATE</th>
 		  <th>TASK</th>
 		  <th>RATE</th>
 		  <th>TIME</th>
 		  <th>TOTAL</th>				
+			</tr>
 		</thead>
 		<% @invoice.line_items.each do |line_item| %>
 		<tr>
