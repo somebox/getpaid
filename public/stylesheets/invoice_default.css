@@ -61,8 +61,8 @@ div#invoiceInfo {
 	text-align:right;
 	display: block;
 	position: absolute;
-	right:0px;
-	top:0px;
+	right:-12px;
+	top:4px;
 	margin: 5px 12px 0 0;
 }
 #invoiceInfo p {
@@ -71,7 +71,7 @@ div#invoiceInfo {
 }
 #invoiceInfo h1 {
 	font-size: 26px;
-	color: #8899bb;
+	color: #888;
 	margin:0;
 }
 
@@ -96,6 +96,7 @@ div#lineItems {
 	font-size: 1.2em;
 }
 #lineItems table {
+	width: 760px;
 	border-collapse: collapse;
 	margin: 0 0 0 10px;
 	padding: 10px 10px 0 4px;
