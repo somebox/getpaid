@@ -11,6 +11,7 @@
 	<div id="header">
     	<%= image_tag USER_CONFIG[:logo] %>
 		<ul>
+		    <li><%= USER_CONFIG[:company] %></li>
 			<li><%= USER_CONFIG[:address1] %></li>
 			<li><%= USER_CONFIG[:address2] %></li>
 		</ul>		
@@ -26,7 +27,7 @@
     	<ul>
 			<li><%= @invoice.customer.name %></li>
 			<li><%= @invoice.customer.address %></li>
-			<li><%= @invoice.customer.city %>, <%= @invoice.customer.state %> <%= @invoice.customer.postal %></li>
+			<li><%= customer_address(@invoice.customer) %></li>
 		</ul>
 	</div>
 

@@ -18,4 +18,12 @@ module InvoicesHelper
   def display_hours(invoice)
     invoice.total_hours > 0 ?  invoice.total_hours : '-' 
   end
+  
+  def customer_address(customer)
+    if customer.postal.match(/^ch$/i)
+      "#{customer.postal}-#{customer.state} #{customer.city}"
+    else
+      "#{[customer.city,customer.state].join(',')} #{customer.postal}"
+    end
+  end
 end
